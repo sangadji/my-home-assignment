@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h3 class="display-4">My Home Assignment</h3>
+    <div class="text-left">
+        <h5>## File Upload</h5>
+        <p>
+            To start using this app please upload the inventory.json and product.json.
+        </p>
+
+        <p>
+            Warning: Once you click "Upload" the database state will be reset and any remaining records on the database will be deleted!
+        </p>
+        <form asp-controller="Home" asp-action="Upload" method="post" enctype="multipart/form-data">
+            <table cellpadding="2" cellspacing="2">
+                <tr>
+                    <td>inventory.json</td>
+                    <td>
+                        <input type="file" name="inventoryFile" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>product.json</td>
+                    <td>
+                        <input type="file" name="productFile" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Upload" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

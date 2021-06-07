@@ -1,0 +1,59 @@
+﻿@model HomeAssignment.Web.Data.Product
+@using HomeAssignment.Web.Data;
+
+@{
+    ViewData["Title"] = "Details";
+    bool displayNamePrinted = false;
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductInventory)
+        </dt>*@
+        @foreach (ProductInventory productInventory in Model.ProductInventory)
+        {
+            if (!displayNamePrinted)
+            {
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ProductInventory)
+                </dt>
+                displayNamePrinted = true;
+            }
+            else
+            {
+                <dt class="col-sm-2">
+                </dt>
+            }
+                <a class="col-sm-10" asp-controller="Inventory" asp-action="Details" asp-route-id="@(productInventory.InventoryId)">
+                - @productInventory.Inventory.Name (x@(productInventory.Amount))
+                </a>
+        }
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Sell" asp-route-id="@Model.Id">Sell</a>
+</div>
