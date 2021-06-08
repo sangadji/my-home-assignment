@@ -5,6 +5,7 @@ This repository contains proof-of-concept of a warehouse software. The warehouse
 
 ## Framework used
 Framework: ASP.NET Core 5.0
+
 Language: C#
 
 ## Getting started
@@ -18,3 +19,19 @@ run it remotely on the web browser. I have deployed it on a web server so you ca
 6. Enter the number item that you'd like to sell.
 7. If the product is sold successfuly you will be redirected to the product listing page with the number of quantities updated.
 8. Go to the inventory page by selecting "inventory" on the navigation pane to see the updated stock quantity.
+
+## Solution structure
+This solution is applying N-tier architecture to separate code concerns into several layers. Since it is a small codebase I've decided not to put the layers on a different projects(.csproj)/class libraries but instead put them on a single project but within different folders (whilst also applying different namespace naming). Here is the list:
+- Data - contains everything related to data including entities, data models and repository classes. 
+  - location /HomeAssignment.Web/Data 
+- Repository - contains classes that are responsible for retrieving and storing data to the database. 
+  - location /HomeAssignment.Web/Data/Repository
+- Services - contains the domain service as well as the main business logic of the application.
+  - location: /HomeAssignment.Web/Services
+- Controllers - contains the ASPNET Core MVC Controllers to handle the incoming requests and responses.
+  - location : /HomeAssignment.Web/Controllers
+- Views - contains the presentation layer of the application
+  - location: /HomeAssignment.Web/Views
+
+## QA
+If you have any question or feedback feel free to contact me at sangadji.prabowo@outlook.com!
