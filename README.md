@@ -33,5 +33,5 @@ This solution is applying N-tier architecture to separate code concerns into sev
 - Views - contains the presentation layer of the application
   - location: /HomeAssignment.Web/Views
 
-## QA
+## Q&A
 If you have any question or feedback feel free to contact me at sangadji.prabowo@outlook.com!
